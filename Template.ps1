@@ -43,6 +43,7 @@ Write-Log -Verb "NEWSPAGE" -Noun $newspage -Path $log -Type Long -Status Normal
 
 ###################################################################################
 
+Write-Line -Length 100 -Path $log
 Write-Log -Verb "LOG END" -Noun $log -Path $log -Type Long -Status Normal
 if($hasError){ $mailSbj = "ERROR " + $scriptName }
 
