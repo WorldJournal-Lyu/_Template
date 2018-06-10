@@ -36,10 +36,15 @@ Write-Line -Length 100 -Path $log
 
 
 $newspage = (Get-WJPath -Name newspage).Path
-$mailMsg  = $mailMsg + ("NEWSPAGE: " + $newspage)
-Write-Log -Verb "NEWSPAGE" -Noun $newspage -Path $log -Type Long -Status Normal
+$mailMsg = $mailMsg + (Write-Log -Verb "NEWSPAGE" -Noun $newspage -Path $log -Type Long -Status Normal -Output String) + "`n"
 
 
+
+# Flag hasError 
+
+if( $false ){
+    $hasError = $true
+}
 
 ###################################################################################
 
