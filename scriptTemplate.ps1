@@ -1,6 +1,6 @@
 <#
 
-Template.ps1
+scriptTemplate.ps1
 
     2018-05-30 Initial Creation
 
