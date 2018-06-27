@@ -14,6 +14,7 @@ Import-Module WorldJournal.Ftp -Verbose -Force
 Import-Module WorldJournal.Log -Verbose -Force
 Import-Module WorldJournal.Email -Verbose -Force
 Import-Module WorldJournal.Server -Verbose -Force
+Import-Module WorldJournal.Database -Verbose -Force
 
 $scriptPath = $MyInvocation.MyCommand.Path
 $scriptName = (($MyInvocation.MyCommand) -Replace ".ps1")
