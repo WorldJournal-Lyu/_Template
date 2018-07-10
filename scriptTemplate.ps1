@@ -40,8 +40,12 @@ Write-Line -Length 100 -Path $log
 
 
 
+
+
 $newspage = (Get-WJPath -Name newspage).Path
 $mailMsg = $mailMsg + (Write-Log -Verb "NEWSPAGE" -Noun $newspage -Path $log -Type Long -Status Normal -Output String) + "`n"
+
+
 
 
 
@@ -51,19 +55,19 @@ Write-Log -Verb "REMOVE" -Noun $localTemp -Path $log -Type Long -Status Normal
 try{
     $temp = $localTemp
     Remove-Item $localTemp -Recurse -Force -ErrorAction Stop
-    $mailMsg = $mailMsg + (Write-Log -Verb "REMOVE" -Noun $temp -Path $log -Type Long -Status Good -Output String) + "`n"
+    Write-Log -Verb "REMOVE" -Noun $temp -Path $log -Type Long -Status Good
 }catch{
     $mailMsg = $mailMsg + (Write-Log -Verb "REMOVE" -Noun $temp -Path $log -Type Long -Status Bad -Output String) + "`n"
     $mailMsg = $mailMsg + (Write-Log -Verb "Exception" -Noun $_.Exception.Message -Path $log -Type Short -Status Bad -Output String) + "`n"
 }
-
-
 
 # Flag hasError 
 
 if( $false ){
     $hasError = $true
 }
+
+
 
 ###################################################################################
 
