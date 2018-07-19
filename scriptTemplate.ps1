@@ -34,7 +34,7 @@ $localTemp = "C:\temp\" + $scriptName + "\"
 if (!(Test-Path($localTemp))) {New-Item $localTemp -Type Directory | Out-Null}
 
 Write-Log -Verb "LOG START" -Noun $log -Path $log -Type Long -Status Normal
-Write-Line -Length 100 -Path $log
+Write-Line -Length 50 -Path $log
 
 ###################################################################################
 
@@ -45,9 +45,15 @@ Write-Line -Length 100 -Path $log
 $newspage = (Get-WJPath -Name newspage).Path
 $mailMsg = $mailMsg + (Write-Log -Verb "NEWSPAGE" -Noun $newspage -Path $log -Type Long -Status Normal -Output String) + "`n"
 
+# Flag hasError 
+
+if( $false ){
+    $hasError = $true
+}
 
 
 
+###################################################################################
 
 # Delete temp folder
 
@@ -61,17 +67,7 @@ try{
     $mailMsg = $mailMsg + (Write-Log -Verb "Exception" -Noun $_.Exception.Message -Path $log -Type Short -Status Bad -Output String) + "`n"
 }
 
-# Flag hasError 
-
-if( $false ){
-    $hasError = $true
-}
-
-
-
-###################################################################################
-
-Write-Line -Length 100 -Path $log
+Write-Line -Length 50 -Path $log
 Write-Log -Verb "LOG END" -Noun $log -Path $log -Type Long -Status Normal
 if($hasError){ $mailSbj = "ERROR " + $scriptName }
 
