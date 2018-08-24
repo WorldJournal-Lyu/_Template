@@ -52,6 +52,8 @@ if( $false ){
 
 ###################################################################################
 
+Write-Line -Length 50 -Path $log
+
 # Delete temp folder
 
 Write-Log -Verb "REMOVE" -Noun $localTemp -Path $log -Type Long -Status Normal
