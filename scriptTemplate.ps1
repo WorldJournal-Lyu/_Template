@@ -39,14 +39,13 @@ Write-Line -Length 50 -Path $log
 
 
 
+$workDate = (Get-Date).AddDays(0)
 $newspage = (Get-WJPath -Name newspage).Path
+
+$mailMsg = $mailMsg + (Write-Log -Verb "workDate" -Noun $workDate -Path $log -Type Short -Status Normal -Output String) + "`n"
 $mailMsg = $mailMsg + (Write-Log -Verb "NEWSPAGE" -Noun $newspage -Path $log -Type Long -Status Normal -Output String) + "`n"
 
-# Flag hasError 
-
-if( $false ){
-    $hasError = $true
-}
+if($false){ $hasError = $true }
 
 
 
